@@ -15,7 +15,7 @@
 <table>
   <tr>
     <td width="100%" valign="top">
-      <table width="100%"><tr><td align="left">🔬 <a href="https://github.com/The-garden-of-sinner/MDAP"><b>MDAP</b></a></td><td align="right"><sub>⭐ 999</sub></td></tr></table>
+      <table width="100%"><tr><td align="left">🔬 <a href="https://github.com/The-garden-of-sinner/MDAP"><b>MDAP</b></a></td><td align="right"><sub>⭐ 6</sub></td></tr></table>
       <sub>Representative research work (<i>Multi-view Disentangled and Adaptive Preference Learning for Cross-Domain Recommendation</i>). Multi-view feature disentanglement &amp; adaptive preference transfer for cross-domain recommendation.</sub>
       <br />
       <sub><code>PyTorch</code> · <code>RecBole</code> · <code>Cross-Domain</code> · <code>WISE 2024</code></sub>

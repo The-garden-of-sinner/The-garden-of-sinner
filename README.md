@@ -1,5 +1,5 @@
 <div align="right">
-  <sub><b>English</b> | <a href="./README.zh-CN.md">简体中文</a></sub>
+  <sub><b>English</b> | <a href="https://github.com/The-garden-of-sinner/The-garden-of-sinner/blob/main/README.zh-CN.md">简体中文</a></sub>
 </div>
 
 <div align="center">
@@ -9,6 +9,10 @@
 </div>
 
 ### `~/src`
+
+<hr />
+
+
 
 <table>
   <tr>
@@ -47,6 +51,9 @@
     </td>
   </tr>
 </table>
+
+<hr />
+
 
 ### `~/telemetry`
 

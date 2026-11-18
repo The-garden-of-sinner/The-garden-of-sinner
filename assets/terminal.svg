@@ -22,17 +22,17 @@
     .rw1 { animation: reveal1 14s steps(17, end) infinite; }
     @keyframes reveal1 {
       0%, 3% { width: 0px; }
-      12%, 100% { width: 150px; }
+      12%, 100% { width: 138px; }
     }
     .rw2 { animation: reveal2 14s steps(26, end) infinite; }
     @keyframes reveal2 {
       0%, 20% { width: 0px; }
-      33%, 100% { width: 225px; }
+      33%, 100% { width: 211px; }
     }
     .rw3 { animation: reveal3 14s steps(5, end) infinite; }
     @keyframes reveal3 {
       0%, 81.5% { width: 0px; }
-      86.5%, 100% { width: 46px; }
+      86.5%, 100% { width: 41px; }
     }
 
     /* Synchronized tracking cursor across all 3 command lines */

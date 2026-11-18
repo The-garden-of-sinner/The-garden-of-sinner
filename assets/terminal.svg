@@ -20,6 +20,7 @@
     /* 命令 1: whoami --observer (17 chars, 0.4s -> 1.7s) */
     .cmd1 {
       width: 0px;
+      overflow: hidden;
       animation: typeCmd1 14s steps(17, end) infinite;
     }
     @keyframes typeCmd1 {
@@ -58,11 +59,17 @@
     /* 命令 2: cat ~/.config/profile.toml (26 chars, 2.8s -> 4.6s) */
     .cmd2 {
       width: 0px;
-      animation: typeCmd2 14s steps(26, end) infinite;
+      opacity: 0;
+      overflow: hidden;
+      animation: typeCmd2 14s steps(26, end) infinite, showCmd2 14s step-end infinite;
     }
     @keyframes typeCmd2 {
       0%, 20% { width: 0px; }
       33%, 100% { width: 225px; }
+    }
+    @keyframes showCmd2 {
+      0%, 20% { opacity: 0; }
+      20.01%, 100% { opacity: 1; }
     }
 
     /* 输出 2 (TOML 配置) 逐行展开 */
@@ -104,11 +111,17 @@
     /* 结尾输入 clear (5 chars, 11.4s -> 12.1s) */
     .cmd3 {
       width: 0px;
-      animation: typeCmd3 14s steps(5, end) infinite;
+      opacity: 0;
+      overflow: hidden;
+      animation: typeCmd3 14s steps(5, end) infinite, showCmd3 14s step-end infinite;
     }
     @keyframes typeCmd3 {
       0%, 81.5% { width: 0px; }
       86.5%, 100% { width: 46px; }
+    }
+    @keyframes showCmd3 {
+      0%, 81.5% { opacity: 0; }
+      81.51%, 100% { opacity: 1; }
     }
 
     /* 闪烁光标 */

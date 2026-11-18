@@ -13,7 +13,6 @@ import os
 import re
 import sys
 import urllib.request
-import urllib.error
 import xml.etree.ElementTree as ET
 
 OWNER = 'The-garden-of-sinner'
@@ -43,7 +42,10 @@ def fetch_stars(repo):
         headers['Authorization'] = 'Bearer ' + TOKEN
     try:
         data = json.loads(http_get(url, extra_headers=headers))
-        return int(data.get('stargazers_count', 0))
+        if 'stargazers_count' not in data:
+            print('  ! %s 返回缺少 stargazers_count' % repo)
+            return None
+        return int(data['stargazers_count'])
     except Exception as e:
         print('  ! stars 拉取失败 %s: %s' % (repo, e))
         return None
@@ -93,22 +95,25 @@ MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN',
 def build_heatmap(rects):
     """生成等宽立方体热力图 SVG（与 gen_v9 同款：莫兰迪米灰、斜率 0、rise 动画）。"""
     cols = sorted(set(r[2] for r in rects))
+    rows = sorted(set(r[3] for r in rects))   # 从数据推导行坐标，不硬编码 20/12
     cidx = {x: i for i, x in enumerate(cols)}
-    NC, NR = len(cols), 7
+    ridx = {y: i for i, y in enumerate(rows)}
+    NC, NR = len(cols), len(rows)
 
-    # 月份标签：每个月的第一天落在哪一列
+    # 月份标签：每个月的首列标注；52 周跨年会出现两个同名月，跳过重复避免混淆
     month_at = []
     seen = set()
+    used = set()
     for score, date, x, y in rects:
         ym = date[:7]
-        if ym not in seen:
-            seen.add(ym)
-            mi = int(date[5:7]) - 1
-            label = MONTHS[mi]
-            # 跨年时把首位月份补上年份后缀，方便识别
-            if len(seen) > 12:
-                label = MONTHS[mi]
-            month_at.append((label, cidx[x]))
+        if ym in seen:
+            continue
+        seen.add(ym)
+        label = MONTHS[int(date[5:7]) - 1]
+        if label in used:
+            continue
+        used.add(label)
+        month_at.append((label, cidx[x]))
 
     AX, AY = 17.0, 0.0
     BX, BY = 0.0, 13.0
@@ -180,9 +185,7 @@ def build_heatmap(rects):
                    % (a[0] - 8, (a[1] + d[1]) / 2 + 3, 1000 + ri * 45, t))
 
     for score, date, xg, yg in rects:
-        ci = cidx[xg]; ri = (yg - 20) // 12
-        if ri < 0 or ri > 6:
-            continue
+        ci = cidx[xg]; ri = ridx[yg]
         A, B, C, D = corners(ci, ri)
         top, left, right, edge, glow = PALETTE[min(score, 4)]
         Cp = (C[0], C[1] + CH_H); Bp = (B[0], B[1] + CH_H); Dp = (D[0], D[1] + CH_H)
@@ -211,9 +214,12 @@ def build_heatmap(rects):
 def main():
     print('== 刷新 star 数 ==')
     stars = {}
+    star_fail = 0
     for repo in REPOS:
         n = fetch_stars(repo)
         stars[repo] = n
+        if n is None:
+            star_fail += 1
         print('  %-18s %s' % (repo, n))
 
     changed = False
@@ -224,23 +230,29 @@ def main():
             changed = True
 
     print('== 刷新贡献热力图 ==')
+    heat_ok = False
     try:
         rects = fetch_contribution()
         svg = build_heatmap(rects)
+        ET.fromstring(svg.encode('utf-8'))   # 先校验合法性，非法则不动旧文件
         heat = os.path.join(ROOT, 'assets', 'heatmap.svg')
         old = open(heat, encoding='utf-8').read() if os.path.exists(heat) else ''
         if svg != old:
             open(heat, 'w', encoding='utf-8').write(svg)
-            # 校验合法
-            ET.parse(heat)
             print('  heatmap.svg 已更新（%d 字节, %d 格）' % (len(svg), len(rects)))
             changed = True
         else:
             print('  heatmap.svg 无变化')
+        heat_ok = True
     except Exception as e:
         print('  ! 热力图更新失败，保留旧图: %s' % e)
 
     print('CHANGED=%s' % ('1' if changed else '0'))
+
+    # star 全部拉取失败且热力图也失败 => 整体失败，让 Action 标红
+    if star_fail == len(REPOS) and not heat_ok:
+        print('!! 所有数据源均失败')
+        return 1
     return 0
 
 

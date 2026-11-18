@@ -9,6 +9,11 @@ on:
 permissions:
   contents: write
 
+# 防止定时任务与手动触发同时运行导致 push 冲突
+concurrency:
+  group: refresh-profile
+  cancel-in-progress: false
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
@@ -28,10 +33,11 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          if [ -n "$(git status --porcelain)" ]; then
-            git add -A
+          if [ -n "$(git status --porcelain -- README.md README.zh-CN.md assets/heatmap.svg)" ]; then
+            git add README.md README.zh-CN.md assets/heatmap.svg
             git commit -m 'chore: refresh stars and contribution heatmap'
-            git push
+            # 显式推 HEAD 到当前分支，避免 detached HEAD 场景推送失败
+            git push origin "HEAD:${{ github.ref_name }}"
           else
             echo 'No changes.'
           fi

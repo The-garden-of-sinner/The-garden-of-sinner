@@ -12,38 +12,32 @@
 
 <table>
   <tr>
-    <td colspan="2" valign="top">
-      <a href="https://github.com/The-garden-of-sinner/MDAP"><strong><code>✦ MDAP</code></strong></a>
-      &nbsp;
-      <img src="https://img.shields.io/github/stars/The-garden-of-sinner/MDAP?style=flat-square&logo=github&logoColor=E6EDF3&label=%E2%98%85&color=D2A8FF&labelColor=161B22" alt="MDAP Stars" />
-      <img src="https://img.shields.io/badge/paper-WISE-38BDF8?style=flat-square&labelColor=161B22" alt="WISE" />
-      <img src="https://img.shields.io/github/last-commit/The-garden-of-sinner/MDAP?style=flat-square&label=pulse&color=7EE787&labelColor=161B22" alt="MDAP Last Commit" />
-      <br />
-      <sub>Representative research work (<i>Multi-view Disentangled and Adaptive Preference Learning for Cross-Domain Recommendation</i>). Addresses preference entanglement and negative transfer in cross-domain recommendation via multi-view feature disentanglement and adaptive preference transfer, validated across multiple cross-domain benchmarks.</sub>
-      <br />
-      <code>PyTorch</code> <code>RecBole-CDR</code> <code>Cross-Domain RecSys</code>
+    <td width="100%" valign="top">
+      <a href="https://github.com/The-garden-of-sinner/MDAP">https://img.shields.io/badge/MDAP-repository-8957E5?style=for-the-badge&logo=github&logoColor=white</a> <img src="https://img.shields.io/github/stars/The-garden-of-sinner/MDAP?style=flat-square&label=%25E2%2598%2585&color=38BDF8&labelColor=161B22&logo=github&logoColor=E6EDF3" alt="stars" /> <img src="https://img.shields.io/github/languages/top/The-garden-of-sinner/MDAP?style=flat-square&label=lang&labelColor=161B22" alt="language" /> <img src="https://img.shields.io/badge/paper-WISE%202024-38BDF8?style=flat-square" alt="WISE 2024" /> <img src="https://img.shields.io/github/last-commit/The-garden-of-sinner/MDAP?style=flat-square&label=pulse&color=7EE787&labelColor=161B22" alt="last commit" />
+      <br /><br />
+      <sub>Representative research work (<i>Multi-view Disentangled and Adaptive Preference Learning for Cross-Domain Recommendation</i>). Multi-view feature disentanglement &amp; adaptive preference transfer for cross-domain recommendation.</sub>
+      <br /><br />
+      <img src="https://img.shields.io/badge/PyTorch-framework-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch" /> <img src="https://img.shields.io/badge/RecBole-RecBole--CDR-6E7681?style=flat-square" alt="RecBole" /> <img src="https://img.shields.io/badge/Cross--Domain-RecSys-8957E5?style=flat-square" alt="Cross-Domain RecSys" />
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <a href="https://github.com/The-garden-of-sinner/token-trace"><strong><code>● token-trace</code></strong></a>
-      <br />
-      <img src="https://img.shields.io/github/stars/The-garden-of-sinner/token-trace?style=flat-square&logo=github&logoColor=E6EDF3&label=%E2%98%85&color=38BDF8&labelColor=161B22" alt="token-trace Stars" />
-      <img src="https://img.shields.io/github/last-commit/The-garden-of-sinner/token-trace?style=flat-square&label=pulse&color=7EE787&labelColor=161B22" alt="token-trace Last Commit" />
-      <br />
-      <sub>A lightweight telemetry tool built to make LLM API calls less of a black box, focusing on token usage tracking and invocation observability across multi-turn workflows.</sub>
-      <br />
-      <code>Python</code> <code>LLM Observability</code> <code>CLI</code>
+      <a href="https://github.com/The-garden-of-sinner/token-trace">https://img.shields.io/badge/token--trace-repository-0E7490?style=for-the-badge&logo=github&logoColor=white</a>
+      <br /><br />
+      <img src="https://img.shields.io/github/stars/The-garden-of-sinner/token-trace?style=flat-square&label=%25E2%2598%2585&color=38BDF8&labelColor=161B22&logo=github&logoColor=E6EDF3" alt="stars" /> <img src="https://img.shields.io/github/languages/top/The-garden-of-sinner/token-trace?style=flat-square&label=lang&labelColor=161B22" alt="language" /> <img src="https://img.shields.io/github/license/The-garden-of-sinner/token-trace?style=flat-square&label=license&color=A371F7&labelColor=161B22" alt="MIT" /> <img src="https://img.shields.io/github/last-commit/The-garden-of-sinner/token-trace?style=flat-square&label=pulse&color=7EE787&labelColor=161B22" alt="last commit" />
+      <br /><br />
+      <sub>A lightweight telemetry tool that makes LLM API calls less of a black box — token usage tracking and invocation observability across multi-turn workflows.</sub>
+      <br /><br />
+      <img src="https://img.shields.io/badge/Python-3.11-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" /> <img src="https://img.shields.io/badge/LLM-Observability-0E7490?style=flat-square" alt="LLM Observability" /> <img src="https://img.shields.io/badge/CLI-tool-6E7681?style=flat-square&logo=gnubash&logoColor=white" alt="CLI" />
     </td>
     <td width="50%" valign="top">
-      <a href="https://github.com/The-garden-of-sinner/SuperV-cliphist"><strong><code>● SuperV-cliphist</code></strong></a>
-      <br />
-      <img src="https://img.shields.io/github/stars/The-garden-of-sinner/SuperV-cliphist?style=flat-square&logo=github&logoColor=E6EDF3&label=%E2%98%85&color=38BDF8&labelColor=161B22" alt="SuperV-cliphist Stars" />
-      <img src="https://img.shields.io/github/last-commit/The-garden-of-sinner/SuperV-cliphist?style=flat-square&label=pulse&color=7EE787&labelColor=161B22" alt="SuperV-cliphist Last Commit" />
-      <br />
-      <sub>A lightweight desktop utility crafted to bring familiar <code>Super+V</code> clipboard history muscle memory to Linux and KylinOS environments.</sub>
-      <br />
-      <code>Linux</code> <code>KylinOS</code> <code>Desktop Utility</code>
+      <a href="https://github.com/The-garden-of-sinner/SuperV-cliphist">https://img.shields.io/badge/SuperV--cliphist-repository-238636?style=for-the-badge&logo=github&logoColor=white</a>
+      <br /><br />
+      <img src="https://img.shields.io/github/stars/The-garden-of-sinner/SuperV-cliphist?style=flat-square&label=%25E2%2598%2585&color=38BDF8&labelColor=161B22&logo=github&logoColor=E6EDF3" alt="stars" /> <img src="https://img.shields.io/github/languages/top/The-garden-of-sinner/SuperV-cliphist?style=flat-square&label=lang&labelColor=161B22" alt="language" /> <img src="https://img.shields.io/github/license/The-garden-of-sinner/SuperV-cliphist?style=flat-square&label=license&color=A371F7&labelColor=161B22" alt="MIT" /> <img src="https://img.shields.io/github/last-commit/The-garden-of-sinner/SuperV-cliphist?style=flat-square&label=pulse&color=7EE787&labelColor=161B22" alt="last commit" />
+      <br /><br />
+      <sub>Brings <code>Super+V</code> clipboard history to Linux &amp; KylinOS: text, rich text, images and files pasted back in original format.</sub>
+      <br /><br />
+      <img src="https://img.shields.io/badge/Linux-KylinOS-FCC624?style=flat-square&logo=linux&logoColor=black" alt="Linux" /> <img src="https://img.shields.io/badge/GTK3-X11-6E7681?style=flat-square" alt="GTK3" /> <img src="https://img.shields.io/badge/Desktop-Utility-238636?style=flat-square" alt="Desktop Utility" />
     </td>
   </tr>
 </table>

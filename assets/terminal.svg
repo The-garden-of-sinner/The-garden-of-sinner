@@ -1,0 +1,198 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="306" viewBox="0 0 760 306" fill="none">
+  <style>
+    .term-font {
+      font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+      font-size: 13.5px;
+    }
+    .title-font {
+      font-family: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+      font-size: 12px;
+    }
+    /* 14s 完整循环：逐行执行 -> 停留阅读 -> clear 清屏 -> 重置 */
+    .screen {
+      animation: screenCycle 14s linear infinite;
+    }
+    @keyframes screenCycle {
+      0%, 88% { opacity: 1; }
+      90%, 100% { opacity: 0; }
+    }
+
+    /* 命令 1: whoami --observer (17 chars, 0.4s -> 1.7s) */
+    .cmd1 {
+      width: 0px;
+      animation: typeCmd1 14s steps(17, end) infinite;
+    }
+    @keyframes typeCmd1 {
+      0%, 3% { width: 0px; }
+      12%, 100% { width: 150px; }
+    }
+
+    /* 输出 1 逐行浮现 */
+    .out1a {
+      opacity: 0;
+      animation: showOut1a 14s step-end infinite;
+    }
+    @keyframes showOut1a {
+      0%, 13.5% { opacity: 0; }
+      14%, 100% { opacity: 1; }
+    }
+    .out1b {
+      opacity: 0;
+      animation: showOut1b 14s step-end infinite;
+    }
+    @keyframes showOut1b {
+      0%, 15% { opacity: 0; }
+      15.5%, 100% { opacity: 1; }
+    }
+
+    /* 提示符 2 出现 */
+    .prompt2 {
+      opacity: 0;
+      animation: showPrompt2 14s step-end infinite;
+    }
+    @keyframes showPrompt2 {
+      0%, 18% { opacity: 0; }
+      18.5%, 100% { opacity: 1; }
+    }
+
+    /* 命令 2: cat ~/.config/profile.toml (26 chars, 2.8s -> 4.6s) */
+    .cmd2 {
+      width: 0px;
+      animation: typeCmd2 14s steps(26, end) infinite;
+    }
+    @keyframes typeCmd2 {
+      0%, 20% { width: 0px; }
+      33%, 100% { width: 225px; }
+    }
+
+    /* 输出 2 (TOML 配置) 逐行展开 */
+    .out2a {
+      opacity: 0;
+      animation: showOut2a 14s step-end infinite;
+    }
+    @keyframes showOut2a {
+      0%, 34.5% { opacity: 0; }
+      35%, 100% { opacity: 1; }
+    }
+    .out2b {
+      opacity: 0;
+      animation: showOut2b 14s step-end infinite;
+    }
+    @keyframes showOut2b {
+      0%, 36.5% { opacity: 0; }
+      37%, 100% { opacity: 1; }
+    }
+    .out2c {
+      opacity: 0;
+      animation: showOut2c 14s step-end infinite;
+    }
+    @keyframes showOut2c {
+      0%, 38.5% { opacity: 0; }
+      39%, 100% { opacity: 1; }
+    }
+
+    /* 提示符 3 出现并等待阅读 */
+    .prompt3 {
+      opacity: 0;
+      animation: showPrompt3 14s step-end infinite;
+    }
+    @keyframes showPrompt3 {
+      0%, 41% { opacity: 0; }
+      41.5%, 100% { opacity: 1; }
+    }
+
+    /* 结尾输入 clear (5 chars, 11.4s -> 12.1s) */
+    .cmd3 {
+      width: 0px;
+      animation: typeCmd3 14s steps(5, end) infinite;
+    }
+    @keyframes typeCmd3 {
+      0%, 81.5% { width: 0px; }
+      86.5%, 100% { width: 46px; }
+    }
+
+    /* 闪烁光标 */
+    .cursor {
+      animation: blinkCursor 1s step-end infinite;
+    }
+    @keyframes blinkCursor {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
+    }
+  </style>
+
+  <!-- 终端外框与背景 -->
+  <rect x="0.5" y="0.5" width="759" height="305" rx="12" fill="#0D1117" stroke="#30363D" />
+
+  <!-- 顶部标题栏 -->
+  <path d="M1 12.5C1 6.14873 6.14873 1 12.5 1H747.5C753.851 1 759 6.14873 759 12.5V38H1V12.5Z" fill="#161B22" />
+  <line x1="1" y1="38" x2="759" y2="38" stroke="#30363D" />
+
+  <!-- macOS / Linux 风格窗口按钮 -->
+  <circle cx="22" cy="19.5" r="5.5" fill="#FF5F56" />
+  <circle cx="42" cy="19.5" r="5.5" fill="#FFBD2E" />
+  <circle cx="62" cy="19.5" r="5.5" fill="#27C93F" />
+
+  <!-- 窗口标题 -->
+  <text x="380" y="23.5" text-anchor="middle" fill="#8B949E" class="title-font">observer@ustc: ~ (zsh)</text>
+
+  <!-- 终端屏幕内容区 -->
+  <g class="screen">
+    <!-- 第 1 行：Prompt + whoami observer flag -->
+    <text x="24" y="68" class="term-font" font-weight="bold" fill="#38BDF8">❯</text>
+    <svg x="40" y="52" height="22" class="cmd1">
+      <text x="0" y="16" class="term-font">
+        <tspan fill="#E6EDF3">whoami </tspan><tspan fill="#79C0FF">--observer</tspan>
+      </text>
+    </svg>
+
+    <!-- 第 2-3 行：whoami 输出 -->
+    <g class="out1a">
+      <text x="24" y="94" class="term-font">
+        <tspan fill="#8B949E">  handle   </tspan><tspan fill="#484F58">:: </tspan><tspan fill="#7EE787">The-garden-of-sinner</tspan><tspan fill="#8B949E"> (USTC CS)</tspan>
+      </text>
+    </g>
+    <g class="out1b">
+      <text x="24" y="118" class="term-font">
+        <tspan fill="#8B949E">  axiom    </tspan><tspan fill="#484F58">:: </tspan><tspan fill="#D2A8FF">Observer of code, entropy &amp; silicon.</tspan>
+      </text>
+    </g>
+
+    <!-- 第 4 行：Prompt + cat ~/.config/profile.toml -->
+    <g class="prompt2">
+      <text x="24" y="152" class="term-font" font-weight="bold" fill="#38BDF8">❯</text>
+    </g>
+    <svg x="40" y="136" height="22" class="cmd2">
+      <text x="0" y="16" class="term-font">
+        <tspan fill="#E6EDF3">cat </tspan><tspan fill="#FFA657">~/.config/profile.toml</tspan>
+      </text>
+    </svg>
+
+    <!-- 第 5-7 行：profile.toml 彩色高亮输出 -->
+    <g class="out2a">
+      <text x="24" y="178" class="term-font">
+        <tspan fill="#FF7B72">  [system] </tspan><tspan fill="#79C0FF">os</tspan><tspan fill="#8B949E"> = </tspan><tspan fill="#A5D6FF">["Linux", "KylinOS"]</tspan><tspan fill="#79C0FF">  lang</tspan><tspan fill="#8B949E"> = </tspan><tspan fill="#A5D6FF">["Python", "C/C++", "Shell"]</tspan>
+      </text>
+    </g>
+    <g class="out2b">
+      <text x="24" y="202" class="term-font">
+        <tspan fill="#FF7B72">  [models] </tspan><tspan fill="#79C0FF">drivers</tspan><tspan fill="#8B949E"> = </tspan><tspan fill="#38BDF8" font-weight="bold">["DeepSeek", "Gemini"]</tspan><tspan fill="#79C0FF">  local</tspan><tspan fill="#8B949E"> = </tspan><tspan fill="#A5D6FF">["Ollama", "PyTorch"]</tspan>
+      </text>
+    </g>
+    <g class="out2c">
+      <text x="24" y="226" class="term-font">
+        <tspan fill="#FF7B72">  [focus]  </tspan><tspan fill="#7EE787">"Token telemetry"</tspan><tspan fill="#484F58"> · </tspan><tspan fill="#7EE787">"Prefix-Cache"</tspan><tspan fill="#484F58"> · </tspan><tspan fill="#7EE787">"Cross-domain RecSys"</tspan>
+      </text>
+    </g>
+
+    <!-- 第 8 行：待机提示符 + 末尾 clear 清屏 -->
+    <g class="prompt3">
+      <text x="24" y="262" class="term-font" font-weight="bold" fill="#38BDF8">❯</text>
+      <rect x="42" y="249" width="7.5" height="15" rx="1" fill="#38BDF8" class="cursor" />
+    </g>
+    <svg x="40" y="246" height="22" class="cmd3">
+      <rect x="0" y="2" width="46" height="18" fill="#0D1117" />
+      <text x="0" y="16" class="term-font" fill="#E6EDF3">clear</text>
+    </svg>
+  </g>
+</svg>

@@ -17,15 +17,21 @@
       90%, 100% { opacity: 0; }
     }
 
-    /* 命令 1: whoami --observer (17 chars, 0.4s -> 1.7s) */
-    .cmd1 {
-      width: 0px;
-      overflow: hidden;
-      animation: typeCmd1 14s steps(17, end) infinite;
-    }
-    @keyframes typeCmd1 {
+    /* 打字机：clipPath 遮罩矩形逐字揭示（steps 按字符数跳变） */
+    .rw1 { animation: reveal1 14s steps(17, end) infinite; }
+    @keyframes reveal1 {
       0%, 3% { width: 0px; }
       12%, 100% { width: 150px; }
+    }
+    .rw2 { animation: reveal2 14s steps(26, end) infinite; }
+    @keyframes reveal2 {
+      0%, 20% { width: 0px; }
+      33%, 100% { width: 225px; }
+    }
+    .rw3 { animation: reveal3 14s steps(5, end) infinite; }
+    @keyframes reveal3 {
+      0%, 81.5% { width: 0px; }
+      86.5%, 100% { width: 46px; }
     }
 
     /* 输出 1 逐行浮现 */
@@ -54,22 +60,6 @@
     @keyframes showPrompt2 {
       0%, 18% { opacity: 0; }
       18.5%, 100% { opacity: 1; }
-    }
-
-    /* 命令 2: cat ~/.config/profile.toml (26 chars, 2.8s -> 4.6s) */
-    .cmd2 {
-      width: 0px;
-      opacity: 0;
-      overflow: hidden;
-      animation: typeCmd2 14s steps(26, end) infinite, showCmd2 14s step-end infinite;
-    }
-    @keyframes typeCmd2 {
-      0%, 20% { width: 0px; }
-      33%, 100% { width: 225px; }
-    }
-    @keyframes showCmd2 {
-      0%, 20% { opacity: 0; }
-      20.01%, 100% { opacity: 1; }
     }
 
     /* 输出 2 (TOML 配置) 逐行展开 */
@@ -108,22 +98,6 @@
       41.5%, 100% { opacity: 1; }
     }
 
-    /* 结尾输入 clear (5 chars, 11.4s -> 12.1s) */
-    .cmd3 {
-      width: 0px;
-      opacity: 0;
-      overflow: hidden;
-      animation: typeCmd3 14s steps(5, end) infinite, showCmd3 14s step-end infinite;
-    }
-    @keyframes typeCmd3 {
-      0%, 81.5% { width: 0px; }
-      86.5%, 100% { width: 46px; }
-    }
-    @keyframes showCmd3 {
-      0%, 81.5% { opacity: 0; }
-      81.51%, 100% { opacity: 1; }
-    }
-
     /* 闪烁光标 */
     .cursor {
       animation: blinkCursor 1s step-end infinite;
@@ -133,6 +107,12 @@
       50.01%, 100% { opacity: 0; }
     }
   </style>
+
+  <defs>
+    <clipPath id="type1"><rect class="rw1" x="40" y="54" width="0" height="22" /></clipPath>
+    <clipPath id="type2"><rect class="rw2" x="40" y="138" width="0" height="22" /></clipPath>
+    <clipPath id="type3"><rect class="rw3" x="40" y="248" width="0" height="22" /></clipPath>
+  </defs>
 
   <!-- 终端外框与背景 -->
   <rect x="0.5" y="0.5" width="759" height="305" rx="12" fill="#0D1117" stroke="#30363D" />
@@ -151,13 +131,11 @@
 
   <!-- 终端屏幕内容区 -->
   <g class="screen">
-    <!-- 第 1 行：Prompt + whoami observer flag -->
+    <!-- 第 1 行：Prompt + whoami observer flag（打字机 1） -->
     <text x="24" y="68" class="term-font" font-weight="bold" fill="#38BDF8">❯</text>
-    <svg x="40" y="52" height="22" class="cmd1">
-      <text x="0" y="16" class="term-font">
-        <tspan fill="#E6EDF3">whoami </tspan><tspan fill="#79C0FF">--observer</tspan>
-      </text>
-    </svg>
+    <text x="40" y="68" class="term-font" clip-path="url(#type1)">
+      <tspan fill="#E6EDF3">whoami </tspan><tspan fill="#79C0FF">--observer</tspan>
+    </text>
 
     <!-- 第 2-3 行：whoami 输出 -->
     <g class="out1a">
@@ -171,15 +149,13 @@
       </text>
     </g>
 
-    <!-- 第 4 行：Prompt + cat ~/.config/profile.toml -->
+    <!-- 第 4 行：Prompt + cat ~/.config/profile.toml（打字机 2） -->
     <g class="prompt2">
       <text x="24" y="152" class="term-font" font-weight="bold" fill="#38BDF8">❯</text>
     </g>
-    <svg x="40" y="136" height="22" class="cmd2">
-      <text x="0" y="16" class="term-font">
-        <tspan fill="#E6EDF3">cat </tspan><tspan fill="#FFA657">~/.config/profile.toml</tspan>
-      </text>
-    </svg>
+    <text x="40" y="152" class="term-font" clip-path="url(#type2)">
+      <tspan fill="#E6EDF3">cat </tspan><tspan fill="#FFA657">~/.config/profile.toml</tspan>
+    </text>
 
     <!-- 第 5-7 行：profile.toml 彩色高亮输出 -->
     <g class="out2a">
@@ -198,14 +174,11 @@
       </text>
     </g>
 
-    <!-- 第 8 行：待机提示符 + 末尾 clear 清屏 -->
+    <!-- 第 8 行：待机提示符 + 末尾 clear 清屏（打字机 3） -->
     <g class="prompt3">
       <text x="24" y="262" class="term-font" font-weight="bold" fill="#38BDF8">❯</text>
       <rect x="42" y="249" width="7.5" height="15" rx="1" fill="#38BDF8" class="cursor" />
     </g>
-    <svg x="40" y="246" height="22" class="cmd3">
-      <rect x="0" y="2" width="46" height="18" fill="#0D1117" />
-      <text x="0" y="16" class="term-font" fill="#E6EDF3">clear</text>
-    </svg>
+    <text x="42" y="262" class="term-font" fill="#E6EDF3" clip-path="url(#type3)">clear</text>
   </g>
 </svg>

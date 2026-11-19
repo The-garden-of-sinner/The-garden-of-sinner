@@ -100,19 +100,17 @@ def build_heatmap(rects):
     ridx = {y: i for i, y in enumerate(rows)}
     NC, NR = len(cols), len(rows)
 
-    # 月份标签：每个月的首列标注；52 周跨年会出现两个同名月，跳过重复避免混淆
+    # 月份标签：每个「年-月」的首列标注一次。
+    # 52 周窗口跨年会出现两个同名月（如去年 11 月、今年 11 月），两者都保留：
+    # 同一个月名的重复出现是跨年的正常表现，按年月去重即可，不能按月份名去重。
     month_at = []
     seen = set()
-    used = set()
     for score, date, x, y in rects:
         ym = date[:7]
         if ym in seen:
             continue
         seen.add(ym)
         label = MONTHS[int(date[5:7]) - 1]
-        if label in used:
-            continue
-        used.add(label)
         month_at.append((label, cidx[x]))
 
     AX, AY = 17.0, 0.0

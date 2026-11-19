@@ -223,7 +223,8 @@ def main():
         print('  %-18s %s' % (repo, n))
 
     changed = False
-    for fn in ['README.md', 'README.zh-CN.md']:
+    # 中英双语已合并进 README.md（同页锚点），只需维护这一个文件
+    for fn in ['README.md']:
         p = os.path.join(ROOT, fn)
         if update_readme_stars(p, stars):
             print('  已更新 %s' % fn)

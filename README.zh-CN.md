@@ -16,27 +16,27 @@
   <tr>
     <td width="100%" valign="top">
       <table width="100%"><tr><td align="left">🔬 <img src="./demos/cards/mdap-1x.gif" alt="" width="18" height="18" /> <a href="https://github.com/The-garden-of-sinner/MDAP"><b>MDAP</b></a></td><td align="right"><sub>⭐ 6</sub></td></tr></table>
-      <sub>代表性算法研究工作（<i>Multi-view Disentangled and Adaptive Preference Learning for Cross-Domain Recommendation</i>）。多视图特征解耦与自适应偏好迁移，解决跨域推荐的偏好混杂与负迁移。</sub>
+      <sub>代表性算法研究工作：多视图特征解耦与自适应偏好迁移。</sub>
       <br />
-      <sub><code>PyTorch</code> · <code>RecBole</code> · <code>跨域推荐</code> · <code>WISE 2024</code></sub>
+      <sub><code>研究</code> · <code>推荐系统</code> · <code>WISE 2024</code></sub>
       <br /><hr />
     </td>
   </tr>
   <tr>
     <td width="100%" valign="top">
       <table width="100%"><tr><td align="left">📊 <img src="./demos/cards/token-trace-1x.gif" alt="" width="18" height="18" /> <a href="https://github.com/The-garden-of-sinner/token-trace"><b>token-trace</b></a></td><td align="right"><sub>⭐ 4</sub></td></tr></table>
-      <sub>轻量级追踪工具，让大模型 API 调用不再是“黑盒”——专注多轮对话与复杂工作流的 Token 消耗统计与调用链路观测。</sub>
+      <sub>轻量级遥测工具，让大模型 API 调用不再是“黑盒”。</sub>
       <br />
-      <sub><code>Python</code> · <code>LLM 可观测性</code> · <code>CLI</code></sub>
+      <sub><code>工具</code> · <code>Harness</code> · <code>上下文分析</code></sub>
       <br /><hr />
     </td>
   </tr>
   <tr>
     <td width="100%" valign="top">
       <table width="100%"><tr><td align="left">📋 <img src="./demos/cards/superv-1x.gif" alt="" width="18" height="18" /> <a href="https://github.com/The-garden-of-sinner/SuperV-cliphist"><b>SuperV-cliphist</b></a></td><td align="right"><sub>⭐ 3</sub></td></tr></table>
-      <sub>在 Linux 与银河麒麟上唤出 <code>Super+V</code> 剪贴板历史：文本、富文本、图片、文件按原格式粘回。</sub>
+      <sub>在 Linux 与银河麒麟上唤出 <code>Super+V</code> 剪贴板历史：文本、富文本、图片、文件。</sub>
       <br />
-      <sub><code>银河麒麟</code> · <code>GTK3</code> · <code>桌面效率工具</code></sub>
+      <sub><code>工具</code> · <code>剪贴板历史</code> · <code>麒麟桌面</code></sub>
     </td>
   </tr>
 </table>

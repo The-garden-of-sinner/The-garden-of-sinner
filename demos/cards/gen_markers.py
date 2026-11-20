@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 """v10 标记：36px 画布（显示 18px）+ 20fps 连续运动，形状极简、无超采样模糊。"""
 import math, os, sys
-sys.path.insert(0, "/home/tongjx/WorkBuddy/github")
+_HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, _HERE)
 from gif_writer import write_full_frame_gif
 from PIL import Image, ImageDraw
 
 W = 18          # 设计坐标（显示尺寸）
 S = 2           # 渲染倍率 -> 36px，浏览器缩到 18px 自然获得抗锯齿
 CANVAS = W * S
-OUT = '/home/tongjx/WorkBuddy/github/The-garden-of-sinner/demos/cards'
+OUT = _HERE
 DELAY = 50      # 20fps
 
 COL = {
@@ -135,12 +136,36 @@ def token(p):
 
 
 # ---------------- 03 SuperV：Super+V 同按 -> 缩小消失 -> 📋 clipboard 弹出 ----------------
-KEY_W, KEY_H = 5.4, 5.8
-KEY_Y = 10.2
-KEYS = [(2.2, 'blue'), (10.4, 'pink')]
+KEY_W, KEY_H = 6.2, 6.4
+KEY_Y = 9.5
+KEYS = [(1.3, 'blue', 'super'), (10.5, 'pink', 'v')]
 
 
-def _keycap(d, x, y, color, sc):
+def _rect(d, x0, y0, x1, y1, color):
+    d.rectangle([U(x0), U(y0), U(x1) - 1, U(y1) - 1], fill=COL[color] + (255,))
+
+
+def _glyph(d, cx, cy, sc, kind):
+    """键帽正中的符号。用近白 paper 色 + 粗笔画，18px 显示下也能一眼认出。"""
+    if kind == 'super':
+        # Windows/Super 风格四格窗：四块实心方块，居中，边缘留白。
+        u = 1.9 * sc          # 单格边长（设计坐标）
+        gap = 0.5 * sc
+        x0, y0 = cx - u - gap / 2, cy - u - gap / 2
+        for dx, dy in ((0, 0), (1, 0), (0, 1), (1, 1)):
+            gx, gy = x0 + dx * (u + gap), y0 + dy * (u + gap)
+            _rect(d, gx, gy, gx + u, gy + u, 'paper')
+    else:
+        # 粗体 V：两条粗线，居中。
+        w, h = 1.9 * sc, 2.3 * sc
+        lw = max(3, int(round(2 * S * sc)))
+        d.line([U(cx - w), U(cy - h), U(cx), U(cy + h)],
+               fill=COL['paper'] + (255,), width=lw)
+        d.line([U(cx), U(cy + h), U(cx + w), U(cy - h)],
+               fill=COL['paper'] + (255,), width=lw)
+
+
+def _keycap(d, x, y, color, sc, kind):
     if sc < 0.12:
         return
     w, h = KEY_W * sc, KEY_H * sc
@@ -149,6 +174,8 @@ def _keycap(d, x, y, color, sc):
     x0, y0 = cx - w / 2, cy - h / 2
     box(d, x0, y0 + 0.8 * sc, x0 + w, y0 + h + 0.8 * sc, min(1.6 * sc, w / 3), 'dim_neutral')
     box(d, x0, y0, x0 + w, y0 + h, min(1.6 * sc, w / 3), color)
+    if sc >= 0.55:
+        _glyph(d, cx, cy, sc, kind)
 
 
 def _clipboard(d, cx, cy, sc):
@@ -179,13 +206,14 @@ def superv(p):
 
     ky = KEY_Y + 1.2 * press
     ksc = 1.0 - vanish
-    for x0, color in KEYS:
-        _keycap(d, x0, ky, color, ksc)
-    if ksc > 0.45:
-        d.line([U(4.1), U(ky + 1.8), U(5.7), U(ky + 1.8)], fill=COL['ink'] + (255,), width=S)
-        d.line([U(4.9), U(ky + 1.0), U(4.9), U(ky + 2.6)], fill=COL['ink'] + (255,), width=S)
-        d.line([U(11.9), U(ky + 2.0), U(13.1), U(ky + 4.3)], fill=COL['ink'] + (255,), width=S)
-        d.line([U(13.1), U(ky + 4.3), U(14.3), U(ky + 2.0)], fill=COL['ink'] + (255,), width=S)
+    for x0, color, kind in KEYS:
+        _keycap(d, x0, ky, color, ksc, kind)
+    if ksc > 0.55:
+        # 两键之间的 “+” ：Super 与 V 同时按。近白、居中、随缩放。
+        mx, my = 9.0, ky + KEY_H / 2
+        a, lw = 0.95 * ksc, max(3, int(round(2 * S * ksc)))
+        d.line([U(mx - a), U(my), U(mx + a), U(my)], fill=COL['paper'] + (255,), width=lw)
+        d.line([U(mx), U(my - a), U(mx), U(my + a)], fill=COL['paper'] + (255,), width=lw)
 
     sc = 0.70 + 0.30 * pop
     if pop > 0.02:

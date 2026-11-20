@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<title>SuperV GIF 重建版诊断</title>
+<style>
+body{margin:0;background:#eef1f4;color:#1f2328;font:14px/1.6 -apple-system,'Segoe UI',sans-serif;padding:32px}
+.wrap{max-width:1100px;margin:0 auto}
+h1{font-size:19px}h2{font-size:14px;margin-top:26px}
+.box{background:#fff;border:1px solid #d1d9e0;border-radius:8px;padding:14px;margin:10px 0}
+code{background:#eff1f3;padding:1px 5px;border-radius:4px;font-size:12px}
+.bad{color:#cf222e}.good{color:#1a7f37}
+img{max-width:100%;image-rendering:pixelated}
+</style></head><body><div class="wrap">
+<h1>SuperV GIF 重建版（disposal=1，重命名）</h1>
+<div class="box">
+<p><b>修了什么</b>：之前 <code>optimize=True</code> + <code>disposal=2</code> 让 39/41 帧变成局部差分帧，
+清除整帧后只画局部，Chrome/文件管理器渲染不出 clipboard。现改为 <code>disposal=1</code>（保留前帧、只更新局部），透明度 <code>0</code> 保留。</p>
+<p>文件 <code>superv-REBUILT-1x.gif</code>：41 帧 / 5000ms / disposal 全部为 1 / 逐帧证据见下。</p>
+</div>
+<h2>① 直接打开重建版 GIF（新文件名，无缓存）</h2>
+<div class="box"><img src="./superv-REBUILT-1x.gif" width="180" height="180" style="image-rendering:pixelated"></div>
+<h2>② 全部 41 帧逐帧证据（#17–#36 是 clipboard）</h2>
+<div class="box"><img src="./_all_frames.png"></div>
+<p>源码：<code>gen_markers.py</code>（同目录）。关键行在最底部 <code>save_gif()</code>。</p>
+</div></body></html>

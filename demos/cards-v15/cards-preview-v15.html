@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8">
+<title>项目卡片动效 v15 · 全新目录（破缓存验证）</title>
+<style>
+body{margin:0;font:14px/1.6 -apple-system,'Segoe UI','Noto Sans CJK SC',sans-serif;background:#eef1f4;color:#1f2328;padding:32px}
+body.dark{background:#010409;color:#e6edf3}
+.wrap{max-width:1180px;margin:0 auto}
+h1{font-size:19px;margin:0 0 4px}
+h2{font-size:14px;margin:26px 0 8px}
+.lead{color:#59636e;font-size:13px;margin:0 0 16px}
+body.dark .lead{color:#8b949e}
+.bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+button{border:1px solid #d1d9e0;background:#fff;color:#1f2328;border-radius:6px;padding:5px 11px;font:inherit;cursor:pointer}
+body.dark button{background:#161b22;border-color:#30363d;color:#e6edf3}
+button.on{border-color:#0969da;color:#0969da}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media(max-width:900px){.cards{grid-template-columns:1fr}}
+table.card{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed}
+table.card td{background:#fff;border:1px solid #d1d9e0;vertical-align:top}
+body.dark table.card td{background:#0d1117;border-color:#30363d}
+.row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.name{font-weight:600}
+.star{margin-left:auto;font-size:13px;color:#59636e}
+body.dark .star{color:#8b949e}
+kbd{font:11px ui-monospace,Menlo,monospace;border:1px solid #d1d9e0;border-bottom-width:2px;border-radius:4px;padding:2px 5px;background:#fff}
+body.dark kbd{background:#21262d;border-color:#444c56}
+code{background:#eff1f3;padding:2px 5px;border-radius:4px;font:11px ui-monospace,SFMono-Regular,Menlo,monospace}
+body.dark code{background:#21262d}
+.rule{border-top:1px solid #d1d9e0;margin:12px 0 8px}
+body.dark .rule{border-color:#30363d}
+blockquote{margin:0;padding:2px 10px;border-left:3px solid #d1d9e0;color:#59636e;font-size:12.5px}
+body.dark blockquote{border-color:#30363d;color:#8b949e}
+.chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:10px}
+.proof{background:#fff;border:1px solid #d1d9e0;border-radius:8px;padding:8px;display:inline-block}
+body.dark .proof{background:#161b22;border-color:#30363d}
+.proof img{display:block;max-width:100%;height:auto;image-rendering:pixelated}
+.cap{font-size:12px;color:#59636e;margin:6px 0 0}
+body.dark .cap{color:#8b949e}
+img.mark{width:18px;height:18px;vertical-align:-3px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>项目卡片动效 v15 · 全新目录验证</h1>
+<p class="lead">磁盘上的 <code>superv-1x.gif</code> 实测 <b>5000ms / 41 帧</b>，clipboard 完全展开 1850–4500ms（2.65s）。若下方 GIF 看着仍是 3s，那是预览服务缓存；请看下面内联的关键帧证据。</p>
+
+<h2>① 直接从 GIF 解码出的关键帧（内联 PNG，不依赖缓存）</h2>
+<div class="proof"><img src="data:image/png;base64,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" alt="SuperV 关键帧"></div>
+<p class="cap">上排浅色 / 下排深色；依次为 t=0（键帽）· 700ms（按下）· 1600ms（退出中）· 2500ms（📋 弹出）· 4000ms（停留）· 4800ms（收回）。</p>
+
+<h2>② 动态卡片</h2>
+<div class="bar">
+  <button onclick="document.body.classList.toggle('dark')">切换浅色 / 深色</button>
+  <button class="sp on" data-speed="1">1x</button>
+  <button class="sp" data-speed="0.5">0.5x</button>
+</div>
+<div class="cards">
+  <table class="card" cellpadding="16"><tr><td>
+    <div class="row"><kbd>01</kbd><img class="mark" data-base="mdap" src="./mdap-1x.gif?v=15" alt=""><span class="name">MDAP</span><span>🔬</span><code>research</code><span class="star">⭐ 6</span></div>
+    <div class="rule"></div>
+    <blockquote>Representative research work. Multi-view feature disentanglement &amp; adaptive preference transfer.</blockquote>
+    <div class="chips"><code>Recommendation System</code><code>WISE 2024</code></div>
+  </td></tr></table>
+  <table class="card" cellpadding="16"><tr><td>
+    <div class="row"><kbd>02</kbd><img class="mark" data-base="token-trace" src="./token-trace-1x.gif?v=15" alt=""><span class="name">token-trace</span><span>📊</span><code>tool</code><span class="star">⭐ 4</span></div>
+    <div class="rule"></div>
+    <blockquote>A lightweight telemetry tool that makes LLM API calls less of a black box.</blockquote>
+    <div class="chips"><code>Harness</code><code>Context Analysis</code></div>
+  </td></tr></table>
+  <table class="card" cellpadding="16"><tr><td>
+    <div class="row"><kbd>03</kbd><img class="mark" data-base="superv" src="./superv-1x.gif?v=15" alt=""><span class="name">SuperV-cliphist</span><span>📋</span><code>tool</code><span class="star">⭐ 3</span></div>
+    <div class="rule"></div>
+    <blockquote>Super+V clipboard history for Linux &amp; KylinOS: text, rich text, images and files.</blockquote>
+    <div class="chips"><code>Clipboard History</code><code>Kylin Desktop</code></div>
+  </td></tr></table>
+</div>
+</div>
+<script>
+document.querySelectorAll('.sp').forEach(function(btn){btn.addEventListener('click',function(){
+  document.querySelectorAll('.sp').forEach(function(b){b.classList.remove('on')});btn.classList.add('on');
+  var s=btn.dataset.speed;
+  document.querySelectorAll('img.mark').forEach(function(img){img.src='./'+img.dataset.base+'-'+s+'x.gif?v=15'});
+})});
+</script>
+</body></html>

@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<title>项目卡片横向布局 + 仓库专属动效 v3</title>
+<title>项目卡片横向布局 + 仓库专属动效 v4</title>
 <style>
   body { margin:0; font:14px/1.6 -apple-system,'Segoe UI','Noto Sans CJK SC',sans-serif; background:#eef1f4; color:#1f2328; padding:32px; }
   body.dark { background:#010409; color:#e6edf3; }
@@ -13,8 +13,8 @@
   .bar { display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:20px; font-size:13px; }
   button { border:1px solid #d1d9e0; background:#fff; color:#1f2328; border-radius:6px; padding:5px 11px; font:inherit; cursor:pointer; }
   body.dark button { background:#161b22; border-color:#30363d; color:#e6edf3; }
-  input[type=range] { width:180px; }
-  #speedLabel { font-family:ui-monospace,Menlo,monospace; min-width:34px; display:inline-block; }
+  input[type=range] { width:190px; }
+  #speedLabel { font-family:ui-monospace,Menlo,monospace; min-width:42px; display:inline-block; }
   .ticks { color:#59636e; font-size:12px; }
   body.dark .ticks { color:#8b949e; }
   .cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
@@ -41,65 +41,68 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>项目卡片横向布局 + 仓库专属动效 v3</h1>
-  <p class="lead">去掉了展开箭头，卡片改用单格 table；扫描线已移除，动画只在仓库专属标记里。</p>
+  <h1>项目卡片横向布局 + 仓库专属动效 v4</h1>
+  <p class="lead">默认速度按卡片区分：MDAP 1x，两个工具 0.5x；滑块可整体覆盖预览。无展开箭头，扫描线已移除。</p>
   <div class="bar">
     <button onclick="document.body.classList.toggle('dark')">切换浅色 / 深色</button>
-    <label for="speed">动效速度 <b id="speedLabel">0.5x</b></label>
-    <input id="speed" type="range" min="0" max="2" step="1" value="0">
-    <span class="ticks">0.5x · 0.75x · 1x</span>
+    <label for="speed">动效速度 <b id="speedLabel">默认</b></label>
+    <input id="speed" type="range" min="0" max="3" step="1" value="0">
+    <span class="ticks">默认 · 0.5x · 0.75x · 1x</span>
   </div>
 
   <div class="cards">
     <table class="card" cellpadding="16"><tr><td>
       <div class="row">
         <kbd>01</kbd>
-        <img data-base="mdap" src="./mdap-0.5x.gif" width="18" height="18" alt="">
+        <img data-base="mdap" data-default-speed="1" src="./mdap-1x.gif" width="18" height="18" alt="">
         <span>🔬</span><span class="name">MDAP</span>
         <code>research</code>
         <span class="star">⭐ 6</span>
       </div>
       <div class="rule"></div>
       <blockquote>Representative research work. Multi-view feature disentanglement &amp; adaptive preference transfer.</blockquote>
-      <div class="chips"><code>PyTorch</code><code>RecBole</code><code>Cross-Domain</code><code>WISE 2024</code></div>
+      <div class="chips"><code>Recommendation System</code><code>WISE 2024</code></div>
     </td></tr></table>
 
     <table class="card" cellpadding="16"><tr><td>
       <div class="row">
         <kbd>02</kbd>
-        <img data-base="token-trace" src="./token-trace-0.5x.gif" width="18" height="18" alt="">
+        <img data-base="token-trace" data-default-speed="0.5" src="./token-trace-0.5x.gif" width="18" height="18" alt="">
         <span>📊</span><span class="name">token-trace</span>
-        <code>telemetry</code>
+        <code>tool</code>
         <span class="star">⭐ 4</span>
       </div>
       <div class="rule"></div>
       <blockquote>A lightweight telemetry tool that makes LLM API calls less of a black box.</blockquote>
-      <div class="chips"><code>Python</code><code>LLM Observability</code><code>CLI</code></div>
+      <div class="chips"><code>Harness</code><code>Context Analysis</code></div>
     </td></tr></table>
 
     <table class="card" cellpadding="16"><tr><td>
       <div class="row">
         <kbd>03</kbd>
-        <img data-base="cliphist" src="./cliphist-0.5x.gif" width="18" height="18" alt="">
+        <img data-base="cliphist" data-default-speed="0.5" src="./cliphist-0.5x.gif" width="18" height="18" alt="">
         <span>📋</span><span class="name">SuperV-cliphist</span>
-        <code>desktop</code>
+        <code>tool</code>
         <span class="star">⭐ 3</span>
       </div>
       <div class="rule"></div>
       <blockquote>Super+V clipboard history for Linux &amp; KylinOS: text, rich text, images and files.</blockquote>
-      <div class="chips"><code>Linux</code><code>KylinOS</code><code>GTK3</code></div>
+      <div class="chips"><code>Clipboard History</code><code>Kylin Desktop</code></div>
     </td></tr></table>
   </div>
 
-  <p class="note">动效标记：MDAP 耦合块展开成多视图 · token-trace 逐柱遥测 · SuperV 剪贴板叠层。滑块切换预设速度，GIF 为 1-bit 透明 + #8B949E。</p>
+  <p class="note">MDAP 标记：耦合块展开为蓝 / 紫 / 粉三个不规则视图块；滑块切到“默认”即恢复每张卡各自的预设速度。</p>
 </div>
 <script>
-  var speeds = ['0.5', '0.75', '1'];
+  var modes = ['default', '0.5', '0.75', '1'];
   var imgs = Array.prototype.slice.call(document.querySelectorAll('img[data-base]'));
   document.getElementById('speed').addEventListener('input', function (e) {
-    var s = speeds[e.target.value];
-    document.getElementById('speedLabel').textContent = s + 'x';
-    imgs.forEach(function (img) { img.src = './' + img.dataset.base + '-' + s + 'x.gif'; });
+    var mode = modes[e.target.value];
+    document.getElementById('speedLabel').textContent = mode === 'default' ? '默认' : mode + 'x';
+    imgs.forEach(function (img) {
+      var s = mode === 'default' ? img.dataset.defaultSpeed : mode;
+      img.src = './' + img.dataset.base + '-' + s + 'x.gif';
+    });
   });
 </script>
 </body>

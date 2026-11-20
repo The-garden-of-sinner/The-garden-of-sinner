@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<title>项目卡片横向布局 + 仓库专属动效 v12</title>
+<title>项目卡片横向布局 + 仓库专属动效 v13</title>
 <style>
   body { margin:0; font:14px/1.6 -apple-system,'Segoe UI','Noto Sans CJK SC',sans-serif; background:#eef1f4; color:#1f2328; padding:32px; }
   body.dark { background:#010409; color:#e6edf3; }
@@ -42,8 +42,8 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>项目卡片横向布局 + 仓库专属动效 v12</h1>
-  <p class="lead">36px 画布显示为 18px，固定 20fps；token-trace 四色柱保持原色、高度依次波动，SuperV 为 Super+V 同按 → 键帽淡出 → 📋 弹出。</p>
+  <h1>项目卡片横向布局 + 仓库专属动效 v13</h1>
+  <p class="lead">36px 画布显示为 18px，固定 20fps；token-trace 四色柱小幅慢速波动，SuperV 为 Super+V 同按 → 键帽缩小消失 → 📋 弹出。</p>
   <div class="bar">
     <button onclick="document.body.classList.toggle('dark')">切换浅色 / 深色</button>
     <span class="sep"></span>
@@ -94,7 +94,7 @@
     </td></tr></table>
   </div>
 
-  <p class="note">v12：token-trace 四色柱颜色固定不变，高度按 1/4 相位依次波动；SuperV 为蓝/粉双键帽同时按下 → 抖动淡出 → 米白 clipboard（橙夹 + 灰线，参照 📋）放大弹出 → 收回。36px 直出 + 20fps。</p>
+  <p class="note">v13：token-trace 波动幅度 2.6→1.5、周期 2 拍→1 拍；SuperV 去掉抖动淡出（有残影），改为键帽缩小到 0 消失，随后米白 clipboard（深色描边 + 橙夹 + 灰线）清晰弹出、收紧收回。36px 直出 + 20fps。</p>
 </div>
 <script>
   document.querySelectorAll('.sp').forEach(function (btn) {

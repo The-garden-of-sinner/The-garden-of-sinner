@@ -62,8 +62,8 @@ def update_readme_stars(path, stars):
             continue
         # 定位该仓库标题链接之后紧跟的 ⭐ 数字
         pat = re.compile(
-            r'(<a href="https://github\.com/%s/%s"><b>[^<]*</b></a></td>'
-            r'<td align="right"><sub>)\u2b50 \d+(</sub>)' % (re.escape(OWNER), re.escape(repo)))
+            r'(<a href="https://github\.com/%s/%s"><b>[^<]*</b></a>[^<>]*</td>'
+            r'<td align="right"[^>]*><sub>)\u2b50 \d+(</sub>)' % (re.escape(OWNER), re.escape(repo)))
         s2, cnt = pat.subn(lambda m: m.group(1) + '\u2b50 %d' % n + m.group(2), s)
         if cnt:
             s = s2

@@ -12,28 +12,25 @@
 
 <hr />
 
-<table>
+<table cellspacing="14">
   <tr>
     <td width="33%" valign="top">
-      <table width="100%"><tr><td align="left"><kbd>01</kbd> <img src="./demos/cards/mdap-1x.gif" alt="" width="18" height="18" /> <a href="https://github.com/The-garden-of-sinner/MDAP"><b>MDAP 🔬</b></a></td><td align="right"><sub>⭐ 6</sub></td></tr></table>
+      <table width="100%"><tr><td align="left" valign="middle"><kbd>01</kbd> <img src="./demos/cards/mdap-1x.gif" alt="" width="18" height="18" align="absmiddle" /> <a href="https://github.com/The-garden-of-sinner/MDAP"><b>MDAP</b></a> 🔬</td><td align="right" valign="middle" width="1%"><sub>⭐ 6</sub></td></tr></table>
       <hr />
-      <sub>Representative research work. Multi-view feature disentanglement &amp; adaptive preference transfer.</sub>
-      <br />
-      <sub><code>research</code> · <code>Recommendation System</code> · <code>WISE 2024</code></sub>
+      <blockquote><sub>Representative research work. Multi-view feature disentanglement &amp; adaptive preference transfer.</sub></blockquote>
+      <blockquote><sub><code>research</code> · <code>Recommendation System</code> · <code>WISE 2024</code></sub></blockquote>
     </td>
     <td width="33%" valign="top">
-      <table width="100%"><tr><td align="left"><kbd>02</kbd> <img src="./demos/cards/token-trace-1x.gif" alt="" width="18" height="18" /> <a href="https://github.com/The-garden-of-sinner/token-trace"><b>token-trace 📊</b></a></td><td align="right"><sub>⭐ 4</sub></td></tr></table>
+      <table width="100%"><tr><td align="left" valign="middle"><kbd>02</kbd> <img src="./demos/cards/token-trace-1x.gif" alt="" width="18" height="18" align="absmiddle" /> <a href="https://github.com/The-garden-of-sinner/token-trace"><b>token-trace</b></a> 📊</td><td align="right" valign="middle" width="1%"><sub>⭐ 4</sub></td></tr></table>
       <hr />
-      <sub>A lightweight telemetry tool that makes LLM API calls less of a black box.</sub>
-      <br />
-      <sub><code>tool</code> · <code>Harness</code> · <code>Context Analysis</code></sub>
+      <blockquote><sub>A lightweight telemetry tool that makes LLM API calls less of a black box.</sub></blockquote>
+      <blockquote><sub><code>tool</code> · <code>Harness</code> · <code>Context Analysis</code></sub></blockquote>
     </td>
     <td width="33%" valign="top">
-      <table width="100%"><tr><td align="left"><kbd>03</kbd> <img src="./demos/cards/superv-1x.gif" alt="" width="18" height="18" /> <a href="https://github.com/The-garden-of-sinner/SuperV-cliphist"><b>SuperV-cliphist 📋</b></a></td><td align="right"><sub>⭐ 3</sub></td></tr></table>
+      <table width="100%"><tr><td align="left" valign="middle"><kbd>03</kbd> <img src="./demos/cards/superv-1x.gif" alt="" width="18" height="18" align="absmiddle" /> <a href="https://github.com/The-garden-of-sinner/SuperV-cliphist"><b>SuperV-cliphist</b></a> 📋</td><td align="right" valign="middle" width="1%"><sub>⭐ 3</sub></td></tr></table>
       <hr />
-      <sub>Super+V clipboard history for Linux &amp; KylinOS: text, rich text, images and files.</sub>
-      <br />
-      <sub><code>tool</code> · <code>Clipboard History</code> · <code>Kylin Desktop</code></sub>
+      <blockquote><sub>Super+V clipboard history for Linux &amp; KylinOS: text, rich text, images and files.</sub></blockquote>
+      <blockquote><sub><code>tool</code> · <code>Clipboard History</code> · <code>Kylin Desktop</code></sub></blockquote>
     </td>
   </tr>
 </table>

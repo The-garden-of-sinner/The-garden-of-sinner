@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<title>项目卡片横向布局 + 仓库专属动效 v13</title>
+<title>项目卡片横向布局 + 仓库专属动效 v14</title>
 <style>
   body { margin:0; font:14px/1.6 -apple-system,'Segoe UI','Noto Sans CJK SC',sans-serif; background:#eef1f4; color:#1f2328; padding:32px; }
   body.dark { background:#010409; color:#e6edf3; }
@@ -42,8 +42,8 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>项目卡片横向布局 + 仓库专属动效 v13</h1>
-  <p class="lead">36px 画布显示为 18px，固定 20fps；token-trace 四色柱小幅慢速波动，SuperV 为 Super+V 同按 → 键帽缩小消失 → 📋 弹出。</p>
+  <h1>项目卡片横向布局 + 仓库专属动效 v14</h1>
+  <p class="lead">36px 画布显示为 18px，固定 20fps；token-trace 小幅慢速波动，SuperV 5s 周期：Super+V 同按 → 键帽缩小消失 → 📋 弹出停留 2.3s。</p>
   <div class="bar">
     <button onclick="document.body.classList.toggle('dark')">切换浅色 / 深色</button>
     <span class="sep"></span>
@@ -57,7 +57,7 @@
     <table class="card" cellpadding="16"><tr><td>
       <div class="row">
         <kbd>01</kbd>
-        <img class="mark" data-base="mdap" src="./mdap-1x.gif" alt="">
+        <img class="mark" data-base="mdap" src="./mdap-1x.gif?v=14" alt="">
         <span class="name">MDAP</span><span>🔬</span>
         <code>research</code>
         <span class="star">⭐ 6</span>
@@ -70,7 +70,7 @@
     <table class="card" cellpadding="16"><tr><td>
       <div class="row">
         <kbd>02</kbd>
-        <img class="mark" data-base="token-trace" src="./token-trace-1x.gif" alt="">
+        <img class="mark" data-base="token-trace" src="./token-trace-1x.gif?v=14" alt="">
         <span class="name">token-trace</span><span>📊</span>
         <code>tool</code>
         <span class="star">⭐ 4</span>
@@ -83,7 +83,7 @@
     <table class="card" cellpadding="16"><tr><td>
       <div class="row">
         <kbd>03</kbd>
-        <img class="mark" data-base="superv" src="./superv-1x.gif" alt="">
+        <img class="mark" data-base="superv" src="./superv-1x.gif?v=14" alt="">
         <span class="name">SuperV-cliphist</span><span>📋</span>
         <code>tool</code>
         <span class="star">⭐ 3</span>
@@ -94,7 +94,7 @@
     </td></tr></table>
   </div>
 
-  <p class="note">v13：token-trace 波动幅度 2.6→1.5、周期 2 拍→1 拍；SuperV 去掉抖动淡出（有残影），改为键帽缩小到 0 消失，随后米白 clipboard（深色描边 + 橙夹 + 灰线）清晰弹出、收紧收回。36px 直出 + 20fps。</p>
+  <p class="note">v14：SuperV 周期 3s→5s，clipboard 完全展开停留 2.3s（此前仅 0.42s），起始尺寸放大（-u 0.55→0.70）。GIF 引用加 `?v=14` 破缓存——此前文件名不变导致浏览器一直显示旧版。</p>
 </div>
 <script>
   document.querySelectorAll('.sp').forEach(function (btn) {
@@ -103,7 +103,7 @@
       btn.classList.add('on');
       var s = btn.dataset.speed;
       document.querySelectorAll('img.mark').forEach(function (img) {
-        img.src = './' + img.dataset.base + '-' + s + 'x.gif';
+        img.src = './' + img.dataset.base + '-' + s + 'x.gif?v=14';
       });
     });
   });

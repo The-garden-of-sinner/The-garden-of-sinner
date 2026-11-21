@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 48" width="100%" height="48" role="presentation">
+  <defs>
+    <clipPath id="clip"><rect width="320" height="48" rx="8"/></clipPath>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#151D23"/><stop offset="100%" stop-color="#1C2730"/>
+    </linearGradient>
+    <radialGradient id="orb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8AA0AC" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#8AA0AC" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="shimmer" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .orb{animation:breathe 6s ease-in-out infinite}
+    .pill-dot{transform-box:fill-box;transform-origin:center;animation:pulse 2.8s cubic-bezier(.2,.7,.3,1) infinite}
+    .flow{stroke-dasharray:5 5;animation:flow 3.5s linear infinite}
+    .cursor{animation:blink 1.2s ease-in-out infinite}
+    .shimmer{animation:sweep 7.5s ease-in-out 0s infinite}
+    .pill-text{font:600 9.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.08em;fill:#B7CAD4}
+    @keyframes breathe{0%,100%{opacity:.55}50%{opacity:.95}}
+    @keyframes pulse{0%{transform:scale(1);opacity:.75}75%,100%{transform:scale(2.5);opacity:0}}
+    @keyframes flow{from{stroke-dashoffset:20}to{stroke-dashoffset:0}}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+    @keyframes sweep{0%,55%{transform:translateX(-140px);opacity:0}65%{opacity:1}90%{opacity:1}100%{transform:translateX(420px);opacity:0}}
+    @media (prefers-reduced-motion:reduce){.orb,.pill-dot,.flow,.cursor,.shimmer{animation:none!important}}
+  </style>
+  <g clip-path="url(#clip)">
+    <rect width="320" height="48" fill="url(#bg)"/>
+    <circle cx="296" cy="10" r="52" fill="url(#orb)" class="orb"/>
+    <rect x="0" y="0" width="4.5" height="48" fill="#8AA0AC"/>
+    <g opacity="0.22" fill="none" stroke="#8AA0AC" stroke-width="1.3">
+      <path d="M 222 34 Q 246 16 270 30 T 314 24" class="flow"/>
+      <path d="M 234 42 Q 258 26 282 38 T 316 33" opacity="0.6"/>
+      <circle cx="246" cy="26" r="2" fill="#8AA0AC"/>
+      <circle cx="286" cy="34" r="2" fill="#8AA0AC"/>
+    </g>
+    <rect x="14" y="13" width="82" height="20" rx="10" fill="#8AA0AC" fill-opacity="0.18"/>
+    <circle cx="25" cy="23" r="2.5" fill="#8AA0AC" class="pill-dot"/>
+    <circle cx="25" cy="23" r="2.5" fill="#8AA0AC"/>
+    <text x="34" y="26.5" class="pill-text">RESEARCH</text>
+    <g class="shimmer"><polygon points="0,0 46,0 14,48 -32,48" fill="url(#shimmer)"/></g>
+  </g>
+  <rect x="0.5" y="0.5" width="319" height="47" rx="7.5" fill="none" stroke="#2D3E49" stroke-width="1"/>
+</svg>

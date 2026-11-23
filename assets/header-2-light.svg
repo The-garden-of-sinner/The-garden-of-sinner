@@ -36,7 +36,7 @@
       <path d="M 228 19 L 239 28 L 228 37"/>
       <path d="M 247 37 L 270 37" class="cursor"/>
     </g>
-    <rect x="14" y="11" width="62.2" height="26" rx="13" fill="#BE9F9A" fill-opacity="0.18"/>
+    <rect x="14" y="11" width="74" height="26" rx="13" fill="#BE9F9A" fill-opacity="0.18"/>
     <circle cx="27" cy="24" r="3" fill="#BE9F9A" class="pill-dot"/>
     <circle cx="27" cy="24" r="3" fill="#BE9F9A"/>
     <text x="37" y="27.8" class="pill-text">TOOL</text>

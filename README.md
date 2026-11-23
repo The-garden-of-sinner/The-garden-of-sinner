@@ -20,8 +20,7 @@
         <source media="(prefers-color-scheme: light)" srcset="./assets/header-1-light.svg" />
         <img alt="MDAP" src="./assets/header-1-light.svg" width="100%" height="48" />
       </picture></a>
-      <table width="100%"><tr><td nowrap align="left" valign="middle"><img src="./demos/cards/mdap-1x.gif" alt="" width="18" height="18" align="absmiddle" /> <a href="https://github.com/The-garden-of-sinner/MDAP"><b>MDAP</b></a> 🔬</td></tr></table>
-      <p align="right"><sub>⭐ 6</sub></p>
+      <table width="100%"><tr><td align="left" valign="middle"><img src="./demos/cards/mdap-1x.gif" alt="" width="18" height="18" align="absmiddle" /> <a href="https://github.com/The-garden-of-sinner/MDAP"><b>MDAP</b></a> 🔬</td><td align="right" valign="middle" width="1%" nowrap><sub>⭐ 6</sub></td></tr></table>
       <hr />
       <blockquote><sub>Representative research work. Multi-view feature disentanglement &amp; adaptive preference transfer.</sub></blockquote>
       <sub><code>Recommendation System</code> · <code>WISE 2024</code></sub>
@@ -32,8 +31,7 @@
         <source media="(prefers-color-scheme: light)" srcset="./assets/header-2-light.svg" />
         <img alt="token-trace" src="./assets/header-2-light.svg" width="100%" height="48" />
       </picture></a>
-      <table width="100%"><tr><td nowrap align="left" valign="middle"><img src="./demos/cards/token-trace-1x.gif" alt="" width="18" height="18" align="absmiddle" /> <a href="https://github.com/The-garden-of-sinner/token-trace"><b>token-trace</b></a> 📊</td></tr></table>
-      <p align="right"><sub>⭐ 4</sub></p>
+      <table width="100%"><tr><td align="left" valign="middle"><img src="./demos/cards/token-trace-1x.gif" alt="" width="18" height="18" align="absmiddle" /> <a href="https://github.com/The-garden-of-sinner/token-trace"><b>token-trace</b></a> 📊</td><td align="right" valign="middle" width="1%" nowrap><sub>⭐ 4</sub></td></tr></table>
       <hr />
       <blockquote><sub>A lightweight telemetry tool that makes LLM API calls less of a black box.</sub></blockquote>
       <sub><code>Harness</code> · <code>Context Analysis</code></sub>
@@ -44,8 +42,7 @@
         <source media="(prefers-color-scheme: light)" srcset="./assets/header-3-light.svg" />
         <img alt="SuperV-cliphist" src="./assets/header-3-light.svg" width="100%" height="48" />
       </picture></a>
-      <table width="100%"><tr><td nowrap align="left" valign="middle"><img src="./demos/cards/superv-1x.gif" alt="" width="18" height="18" align="absmiddle" /> <a href="https://github.com/The-garden-of-sinner/SuperV-cliphist"><b>SuperV-cliphist</b></a> 📋</td></tr></table>
-      <p align="right"><sub>⭐ 3</sub></p>
+      <table width="100%"><tr><td align="left" valign="middle"><img src="./demos/cards/superv-1x.gif" alt="" width="18" height="18" align="absmiddle" /> <a href="https://github.com/The-garden-of-sinner/SuperV-cliphist"><b>SuperV-cliphist</b></a> 📋</td><td align="right" valign="middle" width="1%" nowrap><sub>⭐ 3</sub></td></tr></table>
       <hr />
       <blockquote><sub>Super+V clipboard history for Linux &amp; KylinOS: text, rich text, images and files.</sub></blockquote>
       <sub><code>Clipboard History</code> · <code>Kylin Desktop</code></sub>

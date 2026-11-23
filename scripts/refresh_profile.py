@@ -62,13 +62,12 @@ def update_readme_stars(path, stars):
             continue
         # 定位该仓库标题链接之后紧跟的 ⭐ 数字
         # 结构（含主题头图）：<a href=repo><picture>...</picture></a>
-        #   <table>...<a href=repo><b>name</b></a> emoji</table>
-        #   <p align="right"><sub>⭐ N</sub></p>
+        #   <table>...<a href=repo><b>name</b></a> emoji...<sub>⭐ N</sub>...</table>
         # 用 repo 链接后的 ⭐ 定位，跨越中间标签但不越过下一个仓库。
         pat = re.compile(
             r'(<a href="https://github\.com/%s/%s"><b>[^<]*</b></a>'
             r'(?:(?!<a href="https://github\.com/)[^<]|<[^>]+>)*?'
-            r'<p align="right"><sub>\u2b50 )\d+(</sub>)' % (re.escape(OWNER), re.escape(repo)))
+            r'(?:<td align="right"[^>]*>|<p align="right">)<sub>\u2b50 )\d+(</sub>)' % (re.escape(OWNER), re.escape(repo)))
         s2, cnt = pat.subn(r'\g<1>%d\g<2>' % n, s)
         if cnt:
             s = s2

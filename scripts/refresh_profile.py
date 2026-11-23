@@ -67,7 +67,7 @@ def update_readme_stars(path, stars):
         pat = re.compile(
             r'(<a href="https://github\.com/%s/%s"><b>[^<]*</b></a>'
             r'(?:(?!<a href="https://github\.com/)[^<]|<[^>]+>)*?'
-            r'(?:<td align="right"[^>]*>|<p align="right">)<sub>\u2b50 )\d+(</sub>)' % (re.escape(OWNER), re.escape(repo)))
+            r'<sub>\u2b50 )\d+(</sub>)' % (re.escape(OWNER), re.escape(repo)))
         s2, cnt = pat.subn(r'\g<1>%d\g<2>' % n, s)
         if cnt:
             s = s2

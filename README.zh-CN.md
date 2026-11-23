@@ -20,7 +20,7 @@
         <source media="(prefers-color-scheme: light)" srcset="./assets/header-1-light.svg" />
         <img alt="MDAP" src="./assets/header-1-light.svg" width="100%" height="48" />
       </picture></a>
-      <table width="100%"><tr><td width="172" align="left" valign="middle" nowrap><img src="./demos/cards/mdap-1x.gif" alt="" width="18" height="18" align="absmiddle" /> <a href="https://github.com/The-garden-of-sinner/MDAP"><b>MDAP</b></a> 🔬</td><td align="right" valign="middle" nowrap><sub>⭐ 6</sub></td></tr></table>
+      <p align="center"><img src="./demos/cards/mdap-1x.gif" alt="" width="18" height="18" align="absmiddle" /> <a href="https://github.com/The-garden-of-sinner/MDAP"><b>MDAP</b></a> 🔬 &nbsp;&nbsp; <sub>⭐ 6</sub></p>
       <hr />
       <p align="center"><sub>代表性算法研究工作：多视图特征解耦与自适应偏好迁移。</sub></p>
       <p align="center"><sub><code>推荐系统</code> · <code>WISE 2024</code><br />&nbsp;</sub></p>
@@ -31,7 +31,7 @@
         <source media="(prefers-color-scheme: light)" srcset="./assets/header-2-light.svg" />
         <img alt="token-trace" src="./assets/header-2-light.svg" width="100%" height="48" />
       </picture></a>
-      <table width="100%"><tr><td width="172" align="left" valign="middle" nowrap><img src="./demos/cards/token-trace-1x.gif" alt="" width="18" height="18" align="absmiddle" /> <a href="https://github.com/The-garden-of-sinner/token-trace"><b>token-trace</b></a> 📊</td><td align="right" valign="middle" nowrap><sub>⭐ 4</sub></td></tr></table>
+      <p align="center"><img src="./demos/cards/token-trace-1x.gif" alt="" width="18" height="18" align="absmiddle" /> <a href="https://github.com/The-garden-of-sinner/token-trace"><b>token-trace</b></a> 📊 &nbsp;&nbsp; <sub>⭐ 4</sub></p>
       <hr />
       <p align="center"><sub>轻量级遥测工具，让大模型 API 调用不再是“黑盒”。</sub></p>
       <p align="center"><sub><code>Harness</code> · <code>上下文分析</code><br />&nbsp;</sub></p>
@@ -42,7 +42,7 @@
         <source media="(prefers-color-scheme: light)" srcset="./assets/header-3-light.svg" />
         <img alt="SuperV-cliphist" src="./assets/header-3-light.svg" width="100%" height="48" />
       </picture></a>
-      <table width="100%"><tr><td width="172" align="left" valign="middle" nowrap><img src="./demos/cards/superv-1x.gif" alt="" width="18" height="18" align="absmiddle" /> <a href="https://github.com/The-garden-of-sinner/SuperV-cliphist"><b>SuperV-cliphist</b></a> 📋</td><td align="right" valign="middle" nowrap><sub>⭐ 3</sub></td></tr></table>
+      <p align="center"><img src="./demos/cards/superv-1x.gif" alt="" width="18" height="18" align="absmiddle" /> <a href="https://github.com/The-garden-of-sinner/SuperV-cliphist"><b>SuperV-cliphist</b></a> 📋 &nbsp;&nbsp; <sub>⭐ 3</sub></p>
       <hr />
       <p align="center"><sub>在 Linux 与银河麒麟上唤出 <code>Super+V</code> 剪贴板历史：文本、富文本、图片、文件。</sub></p>
       <p align="center"><sub><code>剪贴板历史</code> · <code>麒麟桌面</code><br />&nbsp;</sub></p>
